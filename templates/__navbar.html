@@ -1,0 +1,15 @@
+{% load static %}
+<header>
+    <h3>JizPI IT-Park</h3>
+    <nav>
+        <a href="{% url 'index' %}" class="text-white-50">Asosiy</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'add' %}" class="text-white-50">Sertifikat Berish</a>
+            <a href="{% url 'main' %}" class="text-white-50">Natija</a>
+            <a href="{% url 'logout' %}" class="text-white-50">logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="text-white-50">login</a>
+        {% endif %}
+    </nav>
+    
+</header>

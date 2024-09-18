@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main class="text-white-50 text-center">
+        <h1>Jizpi IT-park Rasmiy Veb sayti </h1>
+        <p class="lead">Jizpi IT-park tomonidan berilgan Sertifikat uchun QR Code tayyorlab beradigan tizim</p>
+        
+        {% if user.is_authenticated %}
+        {% else %}
+            <p class="lead"><a href="{% url "login" %}" class="btn mt-4 btn-outline-light">Kirish</a></p>
+        {% endif %}
+
+
+    </main>
+        
+{% endblock content %}

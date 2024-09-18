@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main class="text-white-50 text-center">
+    <p class="lead">Jizpi IT-park tomonidan Sertifikat olgan o'quvshilarni ro'yxati</p>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ism Familya</th>
+            <th scope="col">Seriya</th>
+            <th scope="col">O'chirish</th>
+            <th scope="col">Yuklab olish</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            {% for x in sertifikat %}
+            <tr>
+                <th scope="row">{{ x.id }}</th>
+                <td>{{ x.name }}</td>
+                <td>{{ x.serya }}</td>
+                <td>
+            
+                    <a href="{% url 'delate' x.id %}" class="btn btn-danger">O'chirish</a>
+                </td>
+                <td>
+                    {% if x.code %}
+                        <a href="{{ x.code.url }}" class="btn btn-success">Yuklab olish</a>
+                    {% else %}
+                        Fayl mavjud emas
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</main>
+{% endblock content %}

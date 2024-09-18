@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <main class="text-white-50 text-center">
+        
+        <h1>Siz Kiritgan Malumot orqali QR kode rasm ko'rinishida tayotlanadi</h1>
+        <form method="POST">{% csrf_token %}
+           {% comment %} {{ form.as_p }} {% endcomment %}
+           <div class="mb-3 main_content_register">
+                <label for="username" class="form-label">Ism Familya kiriting</label>
+                <input type="text" name="name" class="form-control input_form_register " placeholder="F.I.SH">
+                <br>
+                <label for="pass_seria" class="form-label">Passport Seriya kiriting</label>
+                <input type="text" name="seriya" class="form-control input_form_register " placeholder="AB xxxxxxx">
+            </div>
+            <button type="submit" class='btn btn-outline-light mt-4'>Kiritish</button>
+        </form>
+    
+    </main>
+{% endblock content %}
